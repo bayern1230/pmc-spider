@@ -9,10 +9,8 @@ import os
 
 
 def main():
-    if not os.path.exists('123'):
-        os.mkdir('123')
-    # with open('../spiders/settings/formSetting.json','r',encoding='utf-8') as f:
-    #     d = json.loads(f.read())
+    with open('./settings/formSetting.json','r',encoding='utf-8') as f:
+        d = json.loads(f.read())
     print(os.getcwd())
 
 if __name__ == '__main__':
