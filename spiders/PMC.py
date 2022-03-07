@@ -194,6 +194,8 @@ class PmcSpider(scrapy.Spider):
 
         rprt_list = response.xpath('//div[@class="rprt"]')
         for rprt in rprt_list:
+            # id
+            PMCID = rprt.xpath('.//dl[@class="rprtid"]/dd/text()').extract_first()
             # 标题
             title = ''.join(rprt.xpath('.//div[@class="title"]/a//text()').extract())
             # 链接
@@ -202,9 +204,8 @@ class PmcSpider(scrapy.Spider):
             author = ''.join(rprt.xpath('.//div[@class="desc"]//text()').extract())
             # 细节
             details = ''.join(rprt.xpath('.//div[@class="details"]//text()').extract())
-            print(title)
 
-            yield TextInfoItem(title=title, href=href,author=author,details=details)
+            yield TextInfoItem(title=title, href=href, author=author, details=details, PMCID=PMCID)
         print("------------------")
         print("------------------")
 
@@ -216,6 +217,8 @@ class PmcSpider(scrapy.Spider):
 
         rprt_list = response.xpath('//div[@class="rprt"]')
         for rprt in rprt_list:
+            # id
+            PMCID = rprt.xpath('.//dl[@class="rprtid"]/dd/text()').extract_first()
             # 标题
             title = ''.join(rprt.xpath('.//div[@class="title"]/a//text()').extract())
             # 链接
@@ -224,8 +227,8 @@ class PmcSpider(scrapy.Spider):
             author = ''.join(rprt.xpath('.//div[@class="desc"]//text()').extract())
             # 细节
             details = ''.join(rprt.xpath('.//div[@class="details"]//text()').extract())
-            print(title)
+            print(PMCID)
 
-            yield TextInfoItem(title=title, href=href, author=author, details=details)
+            yield TextInfoItem(title=title, href=href, author=author, details=details, PMCID=PMCID)
         print("------------------")
         print("------------------")
