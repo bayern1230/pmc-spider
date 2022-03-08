@@ -182,7 +182,7 @@ class PmcSpider(scrapy.Spider):
         )
 
     # 通过关键词查找执行回调函数
-    # 功能：设置cookie/表单值，重点更新关键参数
+    # 功能：设置cookie/表单值，重点更新关键参数  todo    :将yield TextInfoItem代码块儿放入函数中
     def term_parse(self, response):
         # 构造表单数据，为翻页做铺垫
         lastQueryKey = response.xpath(
@@ -227,7 +227,6 @@ class PmcSpider(scrapy.Spider):
             author = ''.join(rprt.xpath('.//div[@class="desc"]//text()').extract())
             # 细节
             details = ''.join(rprt.xpath('.//div[@class="details"]//text()').extract())
-            print(PMCID)
 
             yield TextInfoItem(title=title, href=href, author=author, details=details, PMCID=PMCID)
         print("------------------")

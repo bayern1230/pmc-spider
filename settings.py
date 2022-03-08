@@ -64,6 +64,7 @@ COOKIES_ENABLED = False
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    'PMCProject.pipelines.PmcprojectPipeline': 300,
+   'PMCProject.pipelines.MysqlPipeline': 301,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -88,3 +89,10 @@ ITEM_PIPELINES = {
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 '''自定义参数'''
+
+'''Mysql参数'''
+MYSQL_HOST = 'localhost'
+MYSQL_USER = 'root'
+MYSQL_PASSWORD = '123456'
+MYSQL_PORT = 3306
+MYSQL_DATABASE = 'Spider'

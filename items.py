@@ -19,6 +19,7 @@ class FormDataItem(scrapy.Item):
 
 # 文献信息(简略数据)
 class TextInfoItem(scrapy.Item):
+    PMCID = scrapy.Field()
     title = scrapy.Field()
     href = scrapy.Field()
     author = scrapy.Field()
